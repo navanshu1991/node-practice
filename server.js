@@ -16,7 +16,7 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.set('view engine', 'hbs');
-app.use(express.static(__dirname + "/public"));
+
 app.use((request, response, next) => {
     var now = new Date().toString();
     var log = `${now}: ${request.method} ${request.url}`
@@ -34,10 +34,11 @@ app.use((request, response, next) => {
 //     response.render('maintainence.hbs');
 // });
 
+app.use(express.static(__dirname + "/public"));
+
 app.get('/', (request, response) => {
     response.render('home.hbs', {
         pageTitle: 'Home Page',
-        currentYear: new Date().getFullYear(),
         welcomeMsg: 'Welcome to ExpressJS learning!'
     })
 });
@@ -45,7 +46,13 @@ app.get('/', (request, response) => {
 app.get('/about', (request, response) => {
     response.render('about.hbs', {
         pageTitle: 'About Page',
-        currentYear: new Date().getFullYear()
+    });
+});
+
+app.get('/about', (request, response) => {
+    response.render('about.hbs', {
+        pageTitle: 'Projects page',
+        projectWelcome: 'Welcome to the Project portfolio page',
     });
 });
 
