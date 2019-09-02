@@ -30,9 +30,9 @@ app.use((request, response, next) => {
 
     next();
 });
-app.use((request, response, next) => {
-    response.render('maintainence.hbs');
-});
+// app.use((request, response, next) => {
+//     response.render('maintainence.hbs');
+// });
 
 app.get('/', (request, response) => {
     response.render('home.hbs', {
