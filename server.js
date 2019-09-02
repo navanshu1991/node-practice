@@ -36,7 +36,7 @@ app.use((request, response, next) => {
 
 app.get('/', (request, response) => {
     response.render('home.hbs', {
-        pageTitle: 'About Page',
+        pageTitle: 'Home Page',
         currentYear: new Date().getFullYear(),
         welcomeMsg: 'Welcome to ExpressJS learning!'
     })
